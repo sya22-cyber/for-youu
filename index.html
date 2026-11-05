@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For You ♡</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg,#7195bd,#416b96,#91accb);
+    font-family: Georgia,serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 15px;
+    overflow-x: hidden;
+}
+
+.stars {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    color: #edf5ff;
+    animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%,100% {opacity:.2;transform:scale(.7)}
+    50% {opacity:1;transform:scale(1.3)}
+}
+
+.heading {
+    text-align: center;
+    margin-bottom: 38px;
+    letter-spacing: 2px;
+    z-index: 1;
+}
+
+.heading h2 {
+    font-size: 24px;
+    font-weight: normal;
+}
+
+.heading p {
+    font-size: 12px;
+    margin-top: 10px;
+    color: #e0edff;
+}
+
+/* BOOK */
+.scene {
+    width: min(290px,85vw);
+    height: 450px;
+    perspective: 1400px;
+    position: relative;
+    z-index: 2;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+}
+
+.page {
+    position: absolute;
+    inset: 0;
+    border-radius: 9px;
+    box-shadow: 0 15px 40px #102b4c70;
+}
+
+.inside {
+    background: #edf3fa;
+    color: #365778;
+    padding: 24px 21px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+.inside h1 {
+    color: #416d99;
+    font-size: 22px;
+    margin-bottom: 18px;
+}
+
+.inside p {
+    font-size: 12.5px;
+    line-height: 1.85;
+}
+
+.heart {
+    font-size: 27px;
+    margin-top: 15px;
+}
+
+/* COVER */
+.cover {
+    background: linear-gradient(145deg,#89a9cc,#426d9b);
+    border: 2px solid #c2d8ef;
+    transform-origin: left center;
+    transition: transform 1.5s cubic-bezier(.65,0,.35,1);
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+.cover .book {
+    font-size: 65px;
+    margin-bottom: 20px;
+}
+
+.cover h1 {
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.cover small {
+    margin-top: 22px;
+    letter-spacing: 3px;
+    color: #e4efff;
+}
+
+/* BOOK TILT */
+.card.open .cover {
+    transform: rotateY(-175deg) rotateZ(-7deg);
+}
+
+/* BUTTON */
+.open-btn {
+    margin-top: 35px;
+    padding: 13px 30px;
+    border: 1px solid #d6e8ff;
+    border-radius: 30px;
+    background: #416c98;
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    z-index: 3;
+    transition: .3s;
+}
+
+.open-btn:active {
+    transform: scale(.94);
+}
+
+/* SPOTIFY */
+.music {
+    width: min(350px,90vw);
+    margin-top: 40px;
+    z-index: 2;
+    text-align: center;
+}
+
+.music-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #e5f0ff;
+}
+
+.spotify-box {
+    background: #183b60;
+    border: 1px solid #a8c4e2;
+    border-radius: 15px;
+    padding: 10px;
+    box-shadow: 0 10px 30px #142e4b55;
+}
+
+.spotify-box iframe {
+    width: 100%;
+    height: 152px;
+    border: none;
+    border-radius: 10px;
+    display: block;
+}
+
+.spotify-link {
+    display: block;
+    color: #e7f1ff;
+    font-size: 11px;
+    margin-top: 12px;
+    text-decoration: none;
+}
+
+.footer {
+    margin-top: 28px;
+    font-size: 11px;
+    color: #e0edff;
+    z-index: 2;
+}
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="heading">
+    <h2>A Little Something For You</h2>
+    <p>made with love ♡</p>
+</div>
+
+<!-- BOOK -->
+<div class="scene">
+    <div class="card" id="card">
+
+        <!-- INSIDE -->
+        <div class="page inside">
+
+            <h1>Happy Birthday!!</h1>
+
+            <p>
+                happy birthday yaaa!! 🥳🤍
+                <br><br>
+
+                semoga di umur yang sekarang ini
+                banyak hal baik dateng ke hidup kamu,
+                semua yang kamu pengenin dan usahain
+                bisa tercapai satu-satu. semoga selalu
+                sehat, bahagia, dan dikelilingi
+                orang-orang baik.
+                <br><br>
+
+                walaupun sekarang kita udah punya
+                jalan masing-masing, aku tetap
+                berharap yang terbaik buat kamu.
+                <br><br>
+
+                jangan lupa jaga diri baik-baik,
+                jangan terlalu keras sama diri sendiri,
+                and enjoy your special day.
+                <br><br>
+
+                once again, happy birthday yaa!! 🤍
+            </p>
+
+            <div class="heart">♡</div>
+        </div>
+
+        <!-- FRONT -->
+        <div class="page cover">
+
+            <div class="book">📖</div>
+
+            <h1>
+                A Special<br>
+                Day For You
+            </h1>
+
+            <small>OPEN ME ♡</small>
+
+        </div>
+
+    </div>
+</div>
+
+<button class="open-btn" onclick="openCard()">
+    Open Your Card ♡
+</button>
+
+<!-- SPOTIFY PLAYER -->
+<div class="music">
+
+    <div class="music-title">
+        ♫ YOUR SPECIAL SONG
+    </div>
+
+    <div class="spotify-box">
+
+        <iframe
+            src="https://open.spotify.com/embed/track/1fDFHXcykq4iw8Gg7s5hG9?utm_source=generator&theme=0"
+            title="About You - The 1975"
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+        </iframe>
+
+    </div>
+
+    <a class="spotify-link"
+       href="https://open.spotify.com/track/1fDFHXcykq4iw8Gg7s5hG9"
+       target="_blank">
+       Open in Spotify ♡
+    </a>
+
+</div>
+
+<div class="footer">
+    made just for you ♡
+</div>
+
+<script>
+
+// BOOK OPEN
+function openCard() {
+    document.getElementById("card")
+    .classList.toggle("open");
+}
+
+// STARS
+const starBox = document.getElementById("stars");
+
+for (let i = 0; i < 35; i++) {
+
+    const star = document.createElement("span");
+
+    star.className = "star";
+    star.innerHTML = "✦";
+
+    star.style.left = Math.random() * 100 + "%";
+    star.style.top = Math.random() * 100 + "%";
+
+    star.style.fontSize =
+        (Math.random() * 10 + 5) + "px";
+
+    star.style.animationDelay =
+        Math.random() * 3 + "s";
+
+    starBox.appendChild(star);
+}
+
+</script>
+
+</body>
+</html>
